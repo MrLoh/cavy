@@ -18,6 +18,19 @@ export default function(testHookStore) {
     // f() or ref attribute created via React.createRef.
     // Adds the component to the testHookStore if defined.
 
+     // support for legacy string refs
+     if(typeof ref == 'string') {
+      console.warn('string refs are deprecated and may not be supported in future versions of cavy. If you really need them, please use `generateTestHook.bind(this)(identifier, stringRef)`')
+      setTimeout(() => {
+        if(this.refs[ref]) {
+          testHookStore.add(identifier, this.refs[ref]);
+        } else {
+          testHookStore.remove(identifier);
+        }
+      }, 1);
+      return ref
+    }
+
     const registerRef = (component) => {
       // support for callback refs
       if (typeof ref == 'function') {

@@ -17,6 +17,7 @@ import * as taggingTest from './scenarios/taggingTest';
 import * as useRef from './scenarios/useRef';
 import * as createRef from './scenarios/createRef';
 import * as callbackRef from './scenarios/callbackRef';
+import * as stringRef from './scenarios/stringRef';
 // Import new scenarios here:
 
 // Add new scenarios here:
@@ -34,7 +35,8 @@ const scenarios = [
   taggingTest,
   useRef,
   createRef,
-  callbackRef
+  callbackRef,
+  stringRef
 ];
 
 // Validate scenarios.
